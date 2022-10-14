@@ -1,6 +1,9 @@
-# teikoku_firebase_auth
+# Teikoku Firebase Auth
 
-A new Flutter project.
+A Flutter Firebase Authentication project in the clean way from Robert Brunhage with Unit Test.
+you can see the original tutorials from the links below:
+- [Robert Brunhage: Flutter Firebase Authentication - The Clean Way](https://youtu.be/oJ5Vrya3wCQ)
+- [Tadas Petra: Unit Testing with Mockito in Flutter](https://youtu.be/4d6hEaUVvuU)
 
 ## Getting Started
 
