@@ -2,7 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'package:teikoku_firebase_auth/firebase_options.dart';
+import 'package:teikoku_firebase_auth/ui/views/home_view.dart';
 import 'package:teikoku_firebase_auth/ui/views/login_view.dart';
+import 'package:teikoku_firebase_auth/ui/views/register_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: LoginView(),
+      home: HomeView(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teikoku_firebase_auth/ui/widgets/custom_button.dart';
 import 'package:teikoku_firebase_auth/ui/widgets/custom_text_form_field.dart';
 
 class RegisterView extends StatelessWidget {
@@ -33,41 +34,14 @@ class RegisterView extends StatelessWidget {
             hintText: "Please enter your password",
             obscureText: true,
             icon: Icons.lock,
-            margin: EdgeInsets.only(bottom: 6),
+            margin: EdgeInsets.only(bottom: 18),
           ),
         ],
       );
     }
 
     Widget registerButton() {
-      return Container(
-        width: double.infinity,
-        height: 53,
-        margin: const EdgeInsets.symmetric(vertical: 16),
-        child: Theme(
-          data: Theme.of(context).copyWith(
-            colorScheme: ThemeData().colorScheme.copyWith(
-              primary: const Color(0xff3A2618),
-            ),
-          ),
-          child: ElevatedButton(
-            onPressed: () {
-              // Respond to button press
-            },
-            style: ButtonStyle(
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ))),
-            child: const Text(
-              'Register',
-              style: TextStyle(
-                color: Color(0xffFAE1DF),
-              ),
-            ),
-          ),
-        ),
-      );
+      return CustomButton(text: "Register", onPressed: () {});
     }
 
     Widget loginViewButton() {

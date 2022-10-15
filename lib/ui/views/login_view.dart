@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teikoku_firebase_auth/ui/widgets/custom_button.dart';
 import 'package:teikoku_firebase_auth/ui/widgets/custom_text_form_field.dart';
 
 class LoginView extends StatelessWidget {
@@ -50,34 +51,7 @@ class LoginView extends StatelessWidget {
     }
 
     Widget loginButton() {
-      return Container(
-        width: double.infinity,
-        height: 53,
-        margin: const EdgeInsets.symmetric(vertical: 16),
-        child: Theme(
-          data: Theme.of(context).copyWith(
-            colorScheme: ThemeData().colorScheme.copyWith(
-                  primary: const Color(0xff3A2618),
-                ),
-          ),
-          child: ElevatedButton(
-            onPressed: () {
-              // Respond to button press
-            },
-            style: ButtonStyle(
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ))),
-            child: const Text(
-              'Log In',
-              style: TextStyle(
-                color: Color(0xffFAE1DF),
-              ),
-            ),
-          ),
-        ),
-      );
+      return CustomButton(text: "Log In", onPressed: () {});
     }
 
     Widget registerViewButton() {
