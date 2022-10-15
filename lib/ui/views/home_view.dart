@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:teikoku_firebase_auth/services/auth_services.dart';
 import 'package:teikoku_firebase_auth/ui/widgets/custom_button.dart';
 
 class HomeView extends StatelessWidget {
@@ -17,7 +19,9 @@ class HomeView extends StatelessWidget {
               fontSize: 16,
               fontWeight: FontWeight.w500
             ),),
-            CustomButton(text: "Log Out", onPressed: () {})
+            CustomButton(text: "Log Out", onPressed: () {
+              context.read<AuthService>().logOut();
+            })
           ],
         ),
       ),

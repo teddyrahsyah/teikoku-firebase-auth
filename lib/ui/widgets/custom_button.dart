@@ -28,6 +28,7 @@ class CustomButton extends StatelessWidget {
         ),
         child: ElevatedButton(
           onPressed: onPressed,
+          autofocus: false,
           style: ButtonStyle(
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(

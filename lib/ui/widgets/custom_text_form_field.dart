@@ -1,12 +1,12 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final String labelText;
   final String hintText;
-  final bool obscureText;
   final IconData icon;
+  final TextEditingController controller;
+  final bool obscureText;
   final EdgeInsets margin;
 
   const CustomTextFormField({
@@ -14,6 +14,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.labelText,
     required this.hintText,
     required this.icon,
+    required this.controller,
     this.obscureText = false,
     this.margin = EdgeInsets.zero,
   }) : super(key: key);
@@ -31,6 +32,8 @@ class CustomTextFormField extends StatelessWidget {
               ),
         ),
         child: TextFormField(
+          controller: controller,
+          obscureText: obscureText,
           decoration: InputDecoration(
             hintText: hintText,
             labelText: labelText,
@@ -42,7 +45,7 @@ class CustomTextFormField extends StatelessWidget {
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(16),
-              borderSide:  BorderSide(
+              borderSide: BorderSide(
                 color: formColor,
               ),
             ),

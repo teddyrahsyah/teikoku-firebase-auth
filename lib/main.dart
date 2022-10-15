@@ -7,7 +7,6 @@ import 'package:teikoku_firebase_auth/firebase_options.dart';
 import 'package:teikoku_firebase_auth/services/auth_services.dart';
 import 'package:teikoku_firebase_auth/ui/views/home_view.dart';
 import 'package:teikoku_firebase_auth/ui/views/login_view.dart';
-import 'package:teikoku_firebase_auth/ui/views/register_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -51,6 +50,6 @@ class AuthenticationWrapper extends StatelessWidget {
       return const HomeView();
     }
 
-    return const LoginView();
+    return LoginView();
   }
 }

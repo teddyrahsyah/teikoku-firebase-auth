@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:teikoku_firebase_auth/services/auth_services.dart';
+import 'package:teikoku_firebase_auth/ui/views/register_view.dart';
 import 'package:teikoku_firebase_auth/ui/widgets/custom_button.dart';
 import 'package:teikoku_firebase_auth/ui/widgets/custom_text_form_field.dart';
 
 class LoginView extends StatelessWidget {
-  const LoginView({Key? key}) : super(key: key);
+  LoginView({Key? key}) : super(key: key);
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,21 +28,23 @@ class LoginView extends StatelessWidget {
 
     Widget formSection() {
       return Column(
-        children: const [
+        children: [
           CustomTextFormField(
+            controller: emailController,
             labelText: "Email",
             hintText: "Please enter your email",
             icon: Icons.email,
-            margin: EdgeInsets.only(bottom: 16),
+            margin: const EdgeInsets.only(bottom: 16),
           ),
           CustomTextFormField(
+            controller: passwordController,
             labelText: "Password",
             hintText: "Please enter your password",
             obscureText: true,
             icon: Icons.lock,
-            margin: EdgeInsets.only(bottom: 6),
+            margin: const EdgeInsets.only(bottom: 6),
           ),
-          Align(
+          const Align(
             alignment: Alignment.centerRight,
             child: Text(
               "Forgot Password",
@@ -51,13 +59,20 @@ class LoginView extends StatelessWidget {
     }
 
     Widget loginButton() {
-      return CustomButton(text: "Log In", onPressed: () {});
+      return CustomButton(
+          text: "Log In",
+          onPressed: () {
+            context.read<AuthService>().logIn(
+                  email: emailController.text.trim(),
+                  password: passwordController.text.trim(),
+               );
+          });
     }
 
     Widget registerViewButton() {
       return Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children:  [
+        children: [
           const Text(
             "Don't have an account? ",
             style: TextStyle(
@@ -65,7 +80,10 @@ class LoginView extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => RegisterView()));
+            },
             child: const Text(
               "Register",
               style: TextStyle(
