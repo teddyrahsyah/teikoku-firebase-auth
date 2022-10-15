@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:teikoku_firebase_auth/ui/widgets/custom_text_form_field.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({Key? key}) : super(key: key);
+class RegisterView extends StatelessWidget {
+  const RegisterView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,21 +35,11 @@ class LoginView extends StatelessWidget {
             icon: Icons.lock,
             margin: EdgeInsets.only(bottom: 6),
           ),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Text(
-              "Forgot Password",
-              style: TextStyle(
-                  color: Color(0xff3A2618),
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500),
-            ),
-          ),
         ],
       );
     }
 
-    Widget loginButton() {
+    Widget registerButton() {
       return Container(
         width: double.infinity,
         height: 53,
@@ -57,8 +47,8 @@ class LoginView extends StatelessWidget {
         child: Theme(
           data: Theme.of(context).copyWith(
             colorScheme: ThemeData().colorScheme.copyWith(
-                  primary: const Color(0xff3A2618),
-                ),
+              primary: const Color(0xff3A2618),
+            ),
           ),
           child: ElevatedButton(
             onPressed: () {
@@ -67,10 +57,10 @@ class LoginView extends StatelessWidget {
             style: ButtonStyle(
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ))),
+                      borderRadius: BorderRadius.circular(16),
+                    ))),
             child: const Text(
-              'Log In',
+              'Register',
               style: TextStyle(
                 color: Color(0xffFAE1DF),
               ),
@@ -80,12 +70,12 @@ class LoginView extends StatelessWidget {
       );
     }
 
-    Widget registerViewButton() {
+    Widget loginViewButton() {
       return Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children:  [
           const Text(
-            "Don't have an account? ",
+            "Already have an account? ",
             style: TextStyle(
               color: Color(0xff3A2618),
             ),
@@ -93,7 +83,7 @@ class LoginView extends StatelessWidget {
           InkWell(
             onTap: () {},
             child: const Text(
-              "Register",
+              "Log In",
               style: TextStyle(
                   color: Color(0xff3A2618), fontWeight: FontWeight.w500),
             ),
@@ -106,14 +96,14 @@ class LoginView extends StatelessWidget {
       backgroundColor: const Color(0xffFAE1DF),
       body: Center(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 54),
+          padding: const EdgeInsets.symmetric(horizontal: 55),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               logoImage(),
               formSection(),
-              loginButton(),
-              registerViewButton(),
+              registerButton(),
+              loginViewButton(),
             ],
           ),
         ),

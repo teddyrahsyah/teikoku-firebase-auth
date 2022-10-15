@@ -1,8 +1,11 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final String labelText;
   final String hintText;
+  final bool obscureText;
   final IconData icon;
   final EdgeInsets margin;
 
@@ -11,6 +14,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.labelText,
     required this.hintText,
     required this.icon,
+    this.obscureText = false,
     this.margin = EdgeInsets.zero,
   }) : super(key: key);
 
